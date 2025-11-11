@@ -1,5 +1,5 @@
 import React from "react";
-import { FaStar } from "react-icons/fa";
+
 import { Link } from "react-router";
 
 const FeatureCard = ({ review }) => {
@@ -35,6 +35,7 @@ const FeatureCard = ({ review }) => {
           View Details →
         </Link>
       </div>
+      
     </div>
 
   );

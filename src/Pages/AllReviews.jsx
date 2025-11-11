@@ -1,5 +1,5 @@
 import React from 'react'
-import { useLoaderData } from 'react-router'
+import { Link, useLoaderData } from 'react-router'
 import ReviewsCard from '../Card/ReviewsCard'
 
 const AllReviews = () => {
@@ -14,6 +14,14 @@ const AllReviews = () => {
         }
 
       </div>
+      <div className="my-8 flex justify-center">
+                  <Link
+                    to="/"
+                    className="inline-block px-6 py-3 rounded-full font-semibold text-white bg-linear-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 transition-colors"
+                  >
+                    ← Go Back Home
+                  </Link>
+                </div>
     </div>
   )
 }

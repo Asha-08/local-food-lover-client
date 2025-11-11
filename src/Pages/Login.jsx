@@ -66,7 +66,7 @@ const Login = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600">
+            <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-orange-500 to-red-600">
               Login
             </button>
           </fieldset>
@@ -74,14 +74,14 @@ const Login = () => {
 
         <button
           onClick={handleGoogleSignIn}
-          className="btn bg-white rounded-full text-black border-[#e5e5e5]"
+          className="btn bg-white rounded-full text-black border-[#e5e5e5] "
         >
           <FaGoogle />
           Login with Google
         </button>
-        <p className="text-center">
-          New to our website? Please  <Link
-            className="text-blue-500 hover:text-blue-800"
+        <p className="text-center font-bold text-xl">
+          New to our website? Please Click on  <Link
+            className="text-orange-500  font-semibold hover:text-orange-800"
             to="/auth/register"
           >
              Register

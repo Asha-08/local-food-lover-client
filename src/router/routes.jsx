@@ -8,6 +8,9 @@ import AddReview from "../Pages/AddReview";
 import MyReviews from "../Pages/MyReviews";
 import MyFavorites from "../Pages/MyFavorites";
 import PrivateRoute from "./PrivateRoute";
+import CardDetails from "../Card/CardDetails";
+import FeatureCard from "../Card/FeatureCard";
+import FeaturedReview from "../Pages/FeaturedReview";
 
 
 export const router = createBrowserRouter([
@@ -21,13 +24,28 @@ export const router = createBrowserRouter([
         },
         {
             path:"/all-reviews",
-            element:<AllReviews />
+            element:<AllReviews />,
+            loader:()=> fetch('http://localhost:3000/reviews')
+        },
+        {
+            path:"/featured-reviews",
+            element:<FeaturedReview />,
+            // loader:()=> fetch('http://localhost:3000/featured-reviews')
         },
         {
             path:"/add-reviews",
             element:(
                 <PrivateRoute>
                     <AddReview />
+                </PrivateRoute>
+            ),
+        },
+        {
+            path:"/card-details/:id",
+            loader:({params}) => fetch(`http://localhost:3000/reviews/${params.id}`),
+            element:(
+                <PrivateRoute>
+                    <CardDetails></CardDetails>
                 </PrivateRoute>
             ),
         },

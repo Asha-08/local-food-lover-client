@@ -101,7 +101,7 @@ const Register = () => {
             <div>
               <a className="link link-hover">Forgot password?</a>
             </div>
-            <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-pink-500 to-red-600">
+            <button className="btn text-white mt-4 rounded-full bg-linear-to-r from-orange-500 to-red-600">
               Register
             </button>
           </fieldset>
@@ -114,9 +114,9 @@ const Register = () => {
           <FaGoogle />
           Login with Google
         </button>
-        <p className="text-center">
+        <p className="text-center text-xl font-bold">
           Already have an account? Please{" "}
-          <Link className="text-blue-500 hover:text-blue-800" to="/auth/login">
+          <Link className="text-orange-500 hover:text-red-500 font-semibold" to="/auth/login">
             Login
           </Link>{" "}
         </p>

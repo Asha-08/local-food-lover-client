@@ -12,6 +12,7 @@ import CardDetails from "../Card/CardDetails";
 import FeatureCard from "../Card/FeatureCard";
 import FeaturedReview from "../Pages/FeaturedReview";
 import EditReview from "../Pages/EditReview";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 export const router = createBrowserRouter([
@@ -83,6 +84,10 @@ export const router = createBrowserRouter([
         path: "/auth/register",
         element: <Register />,
       },
+       {
+    path:'*',
+    element:<ErrorPage />,
+  },
     ]
   },
 ]);

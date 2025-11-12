@@ -41,7 +41,7 @@ const slides = [
 
 const HeroSlider = () => {
   return (
-     <div className="hero-slider-container ">
+     <div className="hero-slider-container relative z-0">
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 2000, disableOnInteraction: false }}

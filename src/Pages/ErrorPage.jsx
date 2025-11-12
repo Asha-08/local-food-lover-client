@@ -4,7 +4,7 @@ import { NavLink } from 'react-router';
 const ErrorPage = () => {
     const floatingFood = ["🍔", "🍕", "🥗", "🥤", "🍟"];
   return (
-     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-yellow-100 via-orange-200 to-red-200 overflow-hidden">
+     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-yellow-100 via-orange-200 to-red-200 overflow-hidden">
       
       {/* Floating food emojis */}
       {floatingFood.map((food, idx) => (

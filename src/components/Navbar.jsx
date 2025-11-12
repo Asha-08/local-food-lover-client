@@ -1,8 +1,6 @@
 import React, { use } from 'react'
 import { GoHomeFill } from 'react-icons/go'
-import { IoLogoModelS } from 'react-icons/io'
 import { IoLogIn, IoLogOut } from 'react-icons/io5'
-import { LuRotate3D } from 'react-icons/lu'
 import { Link, NavLink } from 'react-router'
 import { AuthContext } from '../Context/AuthContext'
 import { FaUser } from 'react-icons/fa'
@@ -11,7 +9,7 @@ const Navbar = () => {
     const { user, signOutUser } = use(AuthContext);
 
   return (
-    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl">
+    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full  glass-card max-w-7xl ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -43,13 +41,14 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink to={"/all-reviews"}>
-                <IoLogoModelS /> All Reviews
+                 All Reviews
               </NavLink>
             </li>
           </ul>
         </div>
         <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-          <LuRotate3D /> 3D Models Hub
+         
+           Flavor Hub
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
@@ -62,21 +61,17 @@ const Navbar = () => {
           </li>
           <li>
             <NavLink to={"/all-reviews"}>
-              <IoLogoModelS /> All Reviews
+              All Reviews
             </NavLink>
           </li>
-          {/* <li>
-            <NavLink to={"/add-model"}>
-             <ImBoxAdd /> Add model
-            </NavLink>
-          </li> */}
+          
 
         </ul>
       </div>
       <div className="navbar-end gap-3">
 
           {user ? (
-          <div className="dropdown dropdown-end z-50">
+          <div className="dropdown dropdown-end relative z-9999">
             <div
               tabIndex={0}
               role="button"
@@ -136,14 +131,6 @@ const Navbar = () => {
           </Link>
         )}
 
-        
-          {/* <Link
-            to={"/auth/login"}
-            className="btn rounded-full border-gray-300  btn-sm bg-linear-to-r from-pink-500 to-red-500 text-white"
-          >
-            {" "}
-            <IoLogIn /> Login
-          </Link> */}
         
       </div>
     </div>

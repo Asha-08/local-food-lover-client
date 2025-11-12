@@ -1,8 +1,10 @@
 import React, { use, useEffect, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext'
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
+import Swal from 'sweetalert2';
 
 const MyReviews = () => {
+  const navigate = useNavigate();
   const {user} = use(AuthContext);
   const [myReview,setMyReview] = useState([])
 
@@ -16,11 +18,48 @@ const MyReviews = () => {
       })
     }
   },[user?.email])
+
+  const handleDelete = (id)=>{
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result)=>{
+      if(result.isConfirmed){
+         fetch(`http://localhost:3000/reviews/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      
+    })
+    .then(res => res.json())
+    .then(data=> {
+      
+      console.log(data);
+      setMyReview((prev) => prev.filter((review) => review._id !== id));
+      navigate("/all-reviews")
+       Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+    })
+    .catch(err => {
+      console.log(err)
+    })
+      }
+    })
+  }
   return (
     <div>
-      <h3>My Review: {myReview.length}</h3>
+      
        <div className="p-6 max-w-5xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4 text-center">My Reviews</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-center">My Reviews:{myReview.length}</h2>
 
       <div className="hidden md:block shadow-md rounded-lg border border-gray-200">
         <table className="min-w-full bg-white border-collapse">
@@ -63,7 +102,7 @@ const MyReviews = () => {
                   Edit
                 </Link>
 
-                <button className="px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
+                <button onClick={() => handleDelete(review._id)} className="px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
                   Delete
                 </button>
               </td>
@@ -94,7 +133,7 @@ const MyReviews = () => {
                 Edit
               </Link>
 
-              <button className="flex-1 px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
+              <button onClick={() => handleDelete(review._id)} className="flex-1 px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
                 Delete
               </button>
             </div>

@@ -13,7 +13,7 @@ const AddReview = () => {
       photo:e.target.photo.value,
       restaurantName:e.target.restaurantName.value,
       restaurantLocation:e.target.restaurantLocation.value,
-      rating:e.target.rating.value,
+      rating: parseFloat(e.target.rating.value),
       reviewText:e.target.reviewText.value,
       reviewerName:e.target.reviewerName.value,
       createdAt: new Date(),
@@ -28,7 +28,7 @@ const AddReview = () => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData)
+      body: JSON.stringify(formData),
     })
     .then(res => res.json())
     .then(data=> {

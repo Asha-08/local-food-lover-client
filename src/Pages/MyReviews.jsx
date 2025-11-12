@@ -1,5 +1,6 @@
 import React, { use, useEffect, useState } from 'react'
 import { AuthContext } from '../Context/AuthContext'
+import { Link } from 'react-router';
 
 const MyReviews = () => {
   const {user} = use(AuthContext);
@@ -57,9 +58,11 @@ const MyReviews = () => {
               <td className="py-3 px-4 border-b">{review.restaurantName}</td>
               <td className="py-3 px-4 border-b">{new Date(review.createdAt).toLocaleDateString()}</td>
               <td className="py-3 px-4 border-b text-center">
-                <button className="px-3 py-1 text-sm bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600">
+
+                <Link to={`/edit-review/${review._id}`} className="px-3 py-1 text-sm bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600">
                   Edit
-                </button>
+                </Link>
+
                 <button className="px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
                   Delete
                 </button>
@@ -86,9 +89,11 @@ const MyReviews = () => {
             <p><strong>Restaurant:</strong> {review.restaurantName}</p>
             <p><strong>Posted:</strong> {new Date(review.createdAt).toLocaleDateString()}</p>
             <div className="flex gap-2 mt-2">
-              <button className="flex-1 px-3 py-1 text-sm bg-blue-500 text-white rounded-md hover:bg-blue-600">
+
+              <Link to={`/edit-review/${review._id}`} className="flex-1 px-3 py-1 text-sm bg-blue-500 text-white rounded-md hover:bg-blue-600 btn">
                 Edit
-              </button>
+              </Link>
+
               <button className="flex-1 px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
                 Delete
               </button>

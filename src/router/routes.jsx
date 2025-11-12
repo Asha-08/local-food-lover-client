@@ -11,6 +11,7 @@ import PrivateRoute from "./PrivateRoute";
 import CardDetails from "../Card/CardDetails";
 import FeatureCard from "../Card/FeatureCard";
 import FeaturedReview from "../Pages/FeaturedReview";
+import EditReview from "../Pages/EditReview";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +57,15 @@ export const router = createBrowserRouter([
                     <MyReviews />
                 </PrivateRoute>
             ),
+        },
+        {
+            path:"/edit-review/:id",
+            element:(
+                <PrivateRoute>
+                <EditReview></EditReview>
+                </PrivateRoute>
+            ),
+            loader:({params}) => fetch(`http://localhost:3000/reviews/${params.id}`),
         },
         {
             path:"/my-favorites",

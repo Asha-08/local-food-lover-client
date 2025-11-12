@@ -111,6 +111,7 @@ const AddReview = () => {
             type="text"
             name="reviewerName"
             placeholder="Enter your name"
+            required
             className="w-full border border-orange-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
           />
         </div>

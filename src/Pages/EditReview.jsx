@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLoaderData } from 'react-router'
+import Swal from 'sweetalert2';
 
 const EditReview = () => {
     const review = useLoaderData();
@@ -32,6 +33,16 @@ const EditReview = () => {
             .then(res => res.json())
             .then(data=> {
             //   toast.success("Successfully added!")
+             Swal.fire({
+          toast: true,
+          position: "top-end",
+          icon: "success",
+          title: "Review updated successfully!",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+          background: "#fff",
+        });
               console.log(data)
             })
             .catch(err => {

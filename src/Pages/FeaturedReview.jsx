@@ -7,7 +7,7 @@ const FeaturedReview = ({featuredReviewPromise}) => {
    console.log(featured);
   return (
     <div>
-         <div className='text-2xl text-center font-bold'>Featured Reviews</div>
+         <div className='text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent my-10'>Featured Reviews</div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
             {

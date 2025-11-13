@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user, signOutUser } = use(AuthContext);
 
   return (
-    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl bg-linear-to-r from-gray-700 to-orange-500 ">
+    <div className="navbar py-0 min-h-0 z-1 shadow-sm rounded-full glass-card max-w-7xl bg-linear-to-r from-white-200 via-purple-400 to-white-200  ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost md:hidden">
@@ -46,9 +46,7 @@ const Navbar = () => {
             </li>
           </ul>
         </div>
-        <Link to={"/"} className="flex items-center gap-1 text-xl font-bold">
-         
-           Flavor Hub
+        <Link to={"/"} className="flex items-center gap-1 text-xl font-bold bg-linear-to-r from-red-500 via-purple-500 to-orange-500 bg-clip-text text-transparent"><span className='text-red-700 animate-pulse font-bold'>🔥</span> Flavor Hub 
         </Link>
       </div>
       <div className="navbar-center hidden md:flex">
@@ -89,7 +87,7 @@ const Navbar = () => {
               tabIndex="-1"
               className="menu  menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
-              <div className=" pb-3 border-b border-b-gray-200">
+              <div className=" pb-3 border-b border-b-gray-200 bg-linear-to-r from-white-300 via-purple-300 to-white-300">
                 <li className="text-sm font-bold">{user.displayName}</li>
                 <li className="text-xs">{user.email}</li>
               </div>

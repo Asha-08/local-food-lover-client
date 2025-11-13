@@ -94,7 +94,7 @@ const ReviewsCard = ({ review }) => {
 
   return (
     <div>
-      <div className="max-w-sm bg-white dark:bg-[#1e1e1e] rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition duration-300">
+      <div className=" mx-automax-w-sm bg-white dark:bg-[#1e1e1e] rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition duration-300">
         <img src={photo} alt={foodName} className="w-full h-52 object-cover" />
 
         <div className="p-4">

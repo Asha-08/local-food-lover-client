@@ -99,7 +99,7 @@ const MyFavorites = () => {
 
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h2 className="text-2xl font-semibold mb-6 text-center">My Favorites</h2>
+      <h2 className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent mb-6 p-2">My Favorites</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {favorites.map((review) => (
           <div

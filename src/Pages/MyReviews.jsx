@@ -59,7 +59,7 @@ const MyReviews = () => {
     <div>
       
        <div className="p-6 max-w-5xl mx-auto">
-      <h2 className="text-2xl font-semibold mb-4 text-center">My Reviews:{myReview.length}</h2>
+      <h2 className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent mb-6">My Reviews:{myReview.length}</h2>
 
       <div className="hidden md:block shadow-md rounded-lg border border-gray-200">
         <table className="min-w-full bg-white border-collapse">
@@ -98,11 +98,11 @@ const MyReviews = () => {
               <td className="py-3 px-4 border-b">{new Date(review.createdAt).toLocaleDateString()}</td>
               <td className="py-3 px-4 border-b text-center">
 
-                <Link to={`/edit-review/${review._id}`} className="px-3 py-1 text-sm bg-blue-500 text-white rounded-md mr-2 hover:bg-blue-600">
+                <Link to={`/edit-review/${review._id}`} className="px-3 py-1 text-sm bg-indigo-500 text-white rounded-full mr-2 hover:bg-blue-600">
                   Edit
                 </Link>
 
-                <button onClick={() => handleDelete(review._id)} className="px-3 py-1 text-sm bg-red-500 text-white rounded-md hover:bg-red-600">
+                <button onClick={() => handleDelete(review._id)} className="px-3 py-1 text-sm bg-orange-600 text-white rounded-full hover:bg-red-600">
                   Delete
                 </button>
               </td>

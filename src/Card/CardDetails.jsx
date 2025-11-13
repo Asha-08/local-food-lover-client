@@ -24,7 +24,7 @@ const CardDetails = () => {
     day: "numeric",
   });
   return (
-     <div className="max-w-5xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-xl">
+     <div className="max-w-5xl mx-auto  p-10 bg-gray-300 shadow-lg rounded-xl">
       {/* Container: Flex layout */}
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left: Photo */}

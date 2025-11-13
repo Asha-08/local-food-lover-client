@@ -67,7 +67,7 @@ const AllReviews = () => {
           <ReviewsCard key={review._id} review={review}></ReviewsCard>
         ))}
       </div>
-      <div className="my-8 flex justify-center">
+      <div className="py-6 flex justify-center">
         <Link
           to="/"
           className="inline-block px-6 py-3 rounded-full font-semibold text-white bg-linear-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 transition-colors"

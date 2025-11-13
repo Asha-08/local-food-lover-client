@@ -50,7 +50,7 @@ const Register = () => {
         signInWithGoogle()
          .then((result) => {
         toast.success("User created successfully!", { id: "create-user" });
-        console.log(result.user);
+        // console.log(result.user);
         navigate("/");
       })
        .catch((error) => {

@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const FeaturedReview = ({featuredReviewPromise}) => {
    const featured = use(featuredReviewPromise);
-   console.log(featured);
+  //  console.log(featured);
   return (
     <div>
          <div className='text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent my-10'>Featured Reviews</div>

@@ -1,4 +1,7 @@
 # Flavor Hub
+
+**Live site URL:** (https://warm-meerkat-0c057b.netlify.app/)
+
 This platform connects food enthusiasts who love exploring local
 restaurants, street food, or home-cooked meals. Users can share their food
 experiences, post reviews with photos, and discover what others are enjoying

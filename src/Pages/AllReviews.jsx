@@ -10,20 +10,24 @@ const AllReviews = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const search_text = e.target.search.value;
-    console.log(search_text);
+    // console.log(search_text);
     setLoading(true);
 
-    fetch(`http://localhost:3000/search?search=${search_text}`)
+    fetch(
+      `https://local-food-server-pi.vercel.app/search?search=${search_text}`
+    )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         setModels(data);
         setLoading(false);
       });
   };
   return (
     <div>
-      <div className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent">All Reviews</div>
+      <div className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent">
+        All Reviews
+      </div>
 
       <form
         onSubmit={handleSearch}

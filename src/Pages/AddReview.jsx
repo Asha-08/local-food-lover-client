@@ -1,44 +1,43 @@
-import React, { use } from 'react'
-import { AuthContext } from '../Context/AuthContext'
-import toast from 'react-hot-toast'
+import React, { use } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import toast from "react-hot-toast";
 
 const AddReview = () => {
-  const {user} = use(AuthContext)
+  const { user } = use(AuthContext);
 
-  const handleSubmit = (e) =>{
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     const formData = {
-      foodName:e.target.foodName.value,
-      photo:e.target.photo.value,
-      restaurantName:e.target.restaurantName.value,
-      restaurantLocation:e.target.restaurantLocation.value,
+      foodName: e.target.foodName.value,
+      photo: e.target.photo.value,
+      restaurantName: e.target.restaurantName.value,
+      restaurantLocation: e.target.restaurantLocation.value,
       rating: parseFloat(e.target.rating.value),
-      reviewText:e.target.reviewText.value,
-      reviewerName:e.target.reviewerName.value,
+      reviewText: e.target.reviewText.value,
+      reviewerName: e.target.reviewerName.value,
       createdAt: new Date(),
-      created_by:user.email,
-      
-    }
+      created_by: user.email,
+    };
 
     // console.log(formData)
 
-    fetch('http://localhost:3000/reviews', {
+    fetch("https://local-food-server-pi.vercel.app/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData),
     })
-    .then(res => res.json())
-    .then(data=> {
-      toast.success("Successfully added!")
-      console.log(data)
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success("Successfully added!");
+        // console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 ">
       <h2 className="text-2xl font-bold mb-6 text-center text-orange-500">
@@ -102,7 +101,7 @@ const AddReview = () => {
           />
         </div>
 
-         {/* Reviewer Name */}
+        {/* Reviewer Name */}
         <div>
           <label className="block text-gray-700 font-medium mb-1">
             Reviewer Name
@@ -158,7 +157,7 @@ const AddReview = () => {
         </div>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddReview
+export default AddReview;

@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const ReviewsCard = ({ review }) => {
   const [liked, setLiked] = useState(false);
-  const {user} = use(AuthContext);
+  const { user } = use(AuthContext);
   const {
     _id,
     foodName,
@@ -28,8 +28,8 @@ const ReviewsCard = ({ review }) => {
     hour12: true,
   });
 
-  const handleFavorite = ()=>{
-     if (!user?.email) {
+  const handleFavorite = () => {
+    if (!user?.email) {
       Swal.fire({
         icon: "warning",
         title: "Please Login First",
@@ -53,14 +53,13 @@ const ReviewsCard = ({ review }) => {
       created_by,
     };
 
-    fetch("http://localhost:3000/favorites", {
+    fetch("https://local-food-server-pi.vercel.app/favorites", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(favoriteData),
     })
-
-    .then((res) => res.json())
-    .then((data) => {
+      .then((res) => res.json())
+      .then((data) => {
         if (data.success) {
           Swal.fire({
             icon: "success",
@@ -89,7 +88,6 @@ const ReviewsCard = ({ review }) => {
           text: "Please try again later.",
         });
       });
-
   };
 
   return (

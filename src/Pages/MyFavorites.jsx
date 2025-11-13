@@ -1,26 +1,27 @@
-import React, { use, useEffect, useState } from 'react'
-import { AuthContext } from '../Context/AuthContext'
-import { Link } from 'react-router';
-import Swal from 'sweetalert2';
+import React, { use, useEffect, useState } from "react";
+import { AuthContext } from "../Context/AuthContext";
+import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const MyFavorites = () => {
-
-  const {user} = use(AuthContext);
+  const { user } = use(AuthContext);
   const [favorites, setFavorites] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     if (!user?.email) return;
 
-    fetch(`http://localhost:3000/favorites?email=${user.email}`)
+    fetch(
+      `https://local-food-server-pi.vercel.app/favorites?email=${user.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-           const merged = data.reviews.map((review, index) => ({
-          ...review,
-          favoriteId: data.favorites[index]?._id, // favorites collection ID
-        }));
-        setFavorites(merged);
+          const merged = data.reviews.map((review, index) => ({
+            ...review,
+            favoriteId: data.favorites[index]?._id, // favorites collection ID
+          }));
+          setFavorites(merged);
           // setFavorites(data.reviews);
         } else {
           setFavorites([]);
@@ -30,8 +31,8 @@ const MyFavorites = () => {
       .finally(() => setLoading(false));
   }, [user?.email]);
 
-  const handleRemoveFavorite = (favoriteId) =>{
-     Swal.fire({
+  const handleRemoveFavorite = (favoriteId) => {
+    Swal.fire({
       title: "Are you sure?",
       text: "Do you want to remove this from favorites?",
       icon: "warning",
@@ -41,10 +42,13 @@ const MyFavorites = () => {
       confirmButtonText: "Yes, remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/favorites/${favoriteId}`, {
-          method: "DELETE",
-        })
-         .then((res) => res.json())
+        fetch(
+          `https://local-food-server-pi.vercel.app/favorites/${favoriteId}`,
+          {
+            method: "DELETE",
+          }
+        )
+          .then((res) => res.json())
           .then((data) => {
             if (data.success) {
               setFavorites((prev) =>
@@ -56,7 +60,7 @@ const MyFavorites = () => {
                 timer: 1200,
                 showConfirmButton: false,
               });
-              } else {
+            } else {
               Swal.fire({
                 icon: "error",
                 title: "Failed to remove",
@@ -71,35 +75,31 @@ const MyFavorites = () => {
           });
       }
     });
-
-
-  }
+  };
 
   // loading
 
-   if (loading) {
-    return <span className="loading loading-dots loading-xl"></span>
+  if (loading) {
+    return <span className="loading loading-dots loading-xl"></span>;
   }
 
-   if (favorites.length === 0) {
+  if (favorites.length === 0) {
     return (
       <div className="text-center mt-20">
         <h2 className="text-2xl font-semibold mb-3">No Favorites Yet 💔</h2>
         <p className="text-gray-500 mb-5">Add some from the reviews page!</p>
-        <Link
-          to="/all-reviews"
-          className="btn btn-primary rounded-full px-6"
-        >
+        <Link to="/all-reviews" className="btn btn-primary rounded-full px-6">
           Browse Reviews
         </Link>
       </div>
     );
   }
 
-
   return (
     <div className="max-w-6xl mx-auto p-6">
-      <h2 className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent mb-6 p-2">My Favorites</h2>
+      <h2 className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent mb-6 p-2">
+        My Favorites
+      </h2>
       <div className="grid md:grid-cols-3 gap-6">
         {favorites.map((review) => (
           <div
@@ -120,12 +120,15 @@ const MyFavorites = () => {
                 {review.restaurantLocation}
               </p>
               <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                Reviewed by <span className="font-semibold">{review.reviewerName}</span>
+                Reviewed by{" "}
+                <span className="font-semibold">{review.reviewerName}</span>
               </p>
               <div className="flex items-center justify-between mt-3">
-                <span className="text-yellow-500 font-semibold">⭐ {review.rating}</span>
+                <span className="text-yellow-500 font-semibold">
+                  ⭐ {review.rating}
+                </span>
                 <button
-                  onClick={() => handleRemoveFavorite(review.favoriteId)} 
+                  onClick={() => handleRemoveFavorite(review.favoriteId)}
                   className="text-red-500 font-semibold hover:underline"
                 >
                   Remove ❤️
@@ -139,7 +142,7 @@ const MyFavorites = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MyFavorites
+export default MyFavorites;

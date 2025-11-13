@@ -40,7 +40,7 @@ const AddReview = () => {
     })
   }
   return (
-    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 mt-10">
+    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 ">
       <h2 className="text-2xl font-bold mb-6 text-center text-orange-500">
         Share Your Review 🍽️
       </h2>

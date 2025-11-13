@@ -78,7 +78,7 @@ const MyFavorites = () => {
   // loading
 
    if (loading) {
-    return <p className="text-center mt-10">Loading favorites...</p>;
+    return <span className="loading loading-dots loading-xl"></span>
   }
 
    if (favorites.length === 0) {

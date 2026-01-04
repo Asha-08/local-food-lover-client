@@ -1,2 +1,16 @@
 @import "tailwindcss";
-@plugin "daisyui";
+@plugin "daisyui" {
+  themes: light --default, dark --prefersdark;
+}
+
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+
+.navbar .active {
+  color: crimson;
+  font-weight: bold;
+  border: 1px solid #CAC8C8FF;
+  border-radius: 20px;
+  background: rgb(243, 226, 226);
+}

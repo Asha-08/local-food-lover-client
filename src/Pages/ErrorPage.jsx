@@ -1,50 +1,42 @@
-import React from 'react'
-import { NavLink } from 'react-router';
+import React from "react";
+import { NavLink } from "react-router";
+// import { NavLink } from "react-router-dom";
 
 const ErrorPage = () => {
-    const floatingFood = ["🍔", "🍕", "🥗", "🥤", "🍟"];
   return (
-     <div className="relative w-full min-h-screen flex flex-col items-center justify-center bg-linear-to-br from-yellow-100 via-orange-200 to-red-200 overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900 px-4">
       
-      {/* Floating food emojis */}
-      {floatingFood.map((food, idx) => (
-        <div
-          key={idx}
-          className={`absolute text-3xl sm:text-2xl animate-bounce`}
-          style={{
-            top: `${Math.random() * 80}%`,
-            left: `${Math.random() * 90}%`,
-            animationDelay: `${Math.random() * 2}s`,
-          }}
-        >
-          {food}
+      <div className="max-w-5xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-12">
+        
+        {/* Text Section */}
+        <div className="flex-1 text-center lg:text-left space-y-6">
+          <h1 className="text-6xl font-extrabold text-gray-900 dark:text-white">
+            404
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-200">
+            Page Not Found
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-md mx-auto lg:mx-0">
+            Oops! The page you are looking for seems to have wandered off. 
+            You can return to the homepage or explore other sections.
+          </p>
+          <NavLink
+            to="/"
+            className="inline-block px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-lg transition-all duration-300 shadow-lg"
+          >
+            Go to Homepage
+          </NavLink>
         </div>
-      ))}
 
-      {/* Main content */}
-      <div className="z-10 flex flex-col items-center text-center px-4">
-        <h1 className="text-6xl sm:text-5xl md:text-7xl font-extrabold text-red-600 animate-pulse">
-          Oops! 🔥
-        </h1>
-        <h2 className="text-3xl sm:text-2xl md:text-4xl font-bold text-gray-800 mt-4">
-          Page Not Found
-        </h2>
-        <p className="text-gray-700 mt-2 mb-6 max-w-md">
-          The page you are looking for is lost in our kitchen… but we can bring you back!
-        </p>
-        <NavLink
-          to="/"
-          className="px-6 py-3 text-white font-semibold rounded-lg bg-linear-to-r from-purple-600 to-orange-500 hover:from-orange-500 hover:to-purple-600 transition-all duration-300"
-        >
-          Go Back to Safety
-        </NavLink>
+        
+
       </div>
 
-      {/* Optional background spark/flare */}
-      <div className="absolute top-0 left-1/2 w-96 h-96 rounded-full bg-yellow-200 opacity-20 blur-3xl -translate-x-1/2 animate-pulse"></div>
-      <div className="absolute bottom-10 right-1/4 w-72 h-72 rounded-full bg-orange-200 opacity-20 blur-2xl animate-pulse"></div>
+      {/* Optional subtle floating circles */}
+      <div className="absolute top-10 left-1/4 w-32 h-32 bg-orange-300 dark:bg-orange-500 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-20 right-1/3 w-48 h-48 bg-purple-300 dark:bg-purple-500 opacity-15 rounded-full blur-3xl animate-pulse"></div>
     </div>
-  )
-}
+  );
+};
 
-export default ErrorPage
+export default ErrorPage;

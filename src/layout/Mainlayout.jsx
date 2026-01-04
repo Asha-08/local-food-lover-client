@@ -7,9 +7,9 @@ import { Toaster } from 'react-hot-toast'
 const Mainlayout = () => {
   return (
     <div >
-      <div className="max-w-7xl mx-auto ">
+      <div className=" mx-auto ">
         <Navbar />
-        <div className=" bg-gray-300">
+        <div className="">
           <Outlet />
         </div>
         <Footer/>

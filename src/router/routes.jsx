@@ -13,6 +13,12 @@ import FeatureCard from "../Card/FeatureCard";
 import FeaturedReview from "../Pages/FeaturedReview";
 import EditReview from "../Pages/EditReview";
 import ErrorPage from "../Pages/ErrorPage";
+import About from "../components/About/About";
+import Contact from "../components/Contact/Contact";
+import PrivacyPolicy from "../components/PrivacyPolicy/PrivacyPolicy";
+import DashboardLayout from "../Pages/DashBoardLayout/DashboardLayout";
+import Profile from "../Pages/Profile";
+import DashboardHome from "../Pages/DashBoardLayout/DashboardHome";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +28,18 @@ export const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy />,
       },
       {
         path: "/all-reviews",
@@ -41,6 +59,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
         path: "/card-details/:id",
         loader: ({ params }) =>
@@ -77,6 +96,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+
       {
         path: "/auth/login",
         element: <Login />,
@@ -88,6 +108,24 @@ export const router = createBrowserRouter([
       {
         path: "*",
         element: <ErrorPage />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <DashboardHome></DashboardHome>,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

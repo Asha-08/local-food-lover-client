@@ -49,14 +49,14 @@ const EditReview = () => {
   };
 
   return (
-    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 mt-10">
-      <h2 className="text-2xl font-bold mb-6 text-center text-purple-700">
-        Update Your Review 🍽️
+    <div className="max-w-3xl mx-auto  shadow-lg rounded-xl p-8 mt-10">
+      <h2 className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent mb-6">
+        Update Your Review
       </h2>
       <form onSubmit={handleUpdate} className="space-y-5">
         {/* Food Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Food Name
           </label>
           <input
@@ -71,7 +71,7 @@ const EditReview = () => {
 
         {/* Food Image */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Food Image URL
           </label>
           <input
@@ -86,7 +86,7 @@ const EditReview = () => {
 
         {/* Restaurant Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Restaurant Name
           </label>
           <input
@@ -101,7 +101,7 @@ const EditReview = () => {
 
         {/* Location */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Location
           </label>
           <input
@@ -116,7 +116,7 @@ const EditReview = () => {
 
         {/* Reviewer Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Reviewer Name
           </label>
           <input
@@ -131,7 +131,7 @@ const EditReview = () => {
 
         {/* Rating */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Star Rating (1 - 5)
           </label>
           <input
@@ -149,7 +149,7 @@ const EditReview = () => {
 
         {/* Review Text */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Review Text
           </label>
           <textarea
@@ -166,7 +166,7 @@ const EditReview = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-linear-to-r from-orange-500 to-purple-500 text-white font-semibold px-8 py-3 rounded-full hover:from-purple-500 hover:to-orange-500 transition-all"
+            className=" btn bg-linear-to-r from-orange-500 to-red-500 text-white font-semibold px-8 py-3  hover:from-red-500 hover:to-orange-500 transition-all"
           >
             Update Review
           </button>

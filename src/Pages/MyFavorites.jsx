@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from "react";
 import { AuthContext } from "../Context/AuthContext";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import { FaStar } from "react-icons/fa";
 
 const MyFavorites = () => {
   const { user } = use(AuthContext);
@@ -104,7 +105,7 @@ const MyFavorites = () => {
         {favorites.map((review) => (
           <div
             key={review._id}
-            className="bg-white dark:bg-[#1e1e1e] rounded-2xl shadow-md overflow-hidden border border-gray-200 dark:border-gray-700 hover:shadow-lg transition duration-300"
+            className=" rounded shadow overflow-hidden hover:shadow-lg transition duration-300"
           >
             <img
               src={review.photo}
@@ -125,7 +126,7 @@ const MyFavorites = () => {
               </p>
               <div className="flex items-center justify-between mt-3">
                 <span className="text-yellow-500 font-semibold">
-                  ⭐ {review.rating}
+                  <FaStar></FaStar> {review.rating}
                 </span>
                 <button
                   onClick={() => handleRemoveFavorite(review.favoriteId)}

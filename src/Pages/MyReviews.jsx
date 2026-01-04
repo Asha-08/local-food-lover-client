@@ -63,8 +63,8 @@ const MyReviews = () => {
         </h2>
 
         <div className="hidden md:block shadow-md rounded-lg border border-gray-200">
-          <table className="min-w-full bg-white border-collapse">
-            <thead className="bg-gray-100">
+          <table className="min-w-full  border-collapse">
+            <thead className="bg-gray-50">
               <tr>
                 <th className="py-3 px-4 text-left text-gray-700 font-medium border-b">
                   Food Image
@@ -86,11 +86,7 @@ const MyReviews = () => {
 
             <tbody>
               {myReview.map((review) => (
-                <tr
-                  key={review._id}
-                  review={review}
-                  className="hover:bg-gray-50"
-                >
+                <tr key={review._id} review={review} className="">
                   <td className="py-3 px-4 border-b">
                     <img
                       src={review.photo}

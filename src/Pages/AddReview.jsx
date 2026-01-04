@@ -39,15 +39,15 @@ const AddReview = () => {
       });
   };
   return (
-    <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-xl p-8 ">
-      <h2 className="text-2xl font-bold mb-6 text-center text-orange-500">
-        Share Your Review 🍽️
+    <div className="max-w-3xl mx-auto  shadow-lg rounded-xl p-8 ">
+      <h2 className="text-4xl text-center font-bold bg-linear-to-r from-indigo-700 via-red-500 to-orange-500 bg-clip-text text-transparent mb-6">
+        Share Your Review
       </h2>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         {/* Food Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Food Name
           </label>
           <input
@@ -61,7 +61,7 @@ const AddReview = () => {
 
         {/* Food Image */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Food Image URL
           </label>
           <input
@@ -75,7 +75,7 @@ const AddReview = () => {
 
         {/* Restaurant Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Restaurant Name
           </label>
           <input
@@ -89,7 +89,7 @@ const AddReview = () => {
 
         {/* Location */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Location
           </label>
           <input
@@ -103,7 +103,7 @@ const AddReview = () => {
 
         {/* Reviewer Name */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Reviewer Name
           </label>
           <input
@@ -117,7 +117,7 @@ const AddReview = () => {
 
         {/* Rating */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Star Rating (1 - 5)
           </label>
           <input
@@ -134,7 +134,7 @@ const AddReview = () => {
 
         {/* Review Text */}
         <div>
-          <label className="block text-gray-700 font-medium mb-1">
+          <label className="block text-gray-700 dark:text-gray-400 font-medium mb-1">
             Review Text
           </label>
           <textarea
@@ -150,7 +150,7 @@ const AddReview = () => {
         <div className="text-center">
           <button
             type="submit"
-            className="bg-linear-to-r from-orange-500 to-red-500 text-white font-semibold px-8 py-3 rounded-full hover:from-red-500 hover:to-orange-500 transition-all"
+            className=" btn bg-linear-to-r from-orange-500 to-red-500 text-white font-semibold px-8 py-3  hover:from-red-500 hover:to-orange-500 transition-all"
           >
             Submit Review
           </button>

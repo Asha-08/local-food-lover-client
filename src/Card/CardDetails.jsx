@@ -1,12 +1,13 @@
-import React from 'react'
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
-import { Link, useLoaderData } from 'react-router'
+import { Link, useLoaderData } from "react-router";
 
 const CardDetails = () => {
-    const review = useLoaderData();
-    // console.log(review);
+  const review = useLoaderData();
+  // console.log(review);
 
-     const {
+  const {
     photo,
     foodName,
     restaurantName,
@@ -18,13 +19,13 @@ const CardDetails = () => {
     created_by,
   } = review;
 
-   const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
+  const formattedDate = new Date(createdAt).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
   return (
-     <div className="max-w-5xl mx-auto  p-10 bg-gray-300 shadow-lg rounded-xl">
+    <div className="max-w-5xl mx-auto  p-10  shadow-lg rounded-xl">
       {/* Container: Flex layout */}
       <div className="flex flex-col md:flex-row gap-8">
         {/* Left: Photo */}
@@ -48,27 +49,33 @@ const CardDetails = () => {
             {/* Reviewer Info */}
             <div className="flex items-center justify-between mb-4">
               <div>
-                <p className="text-gray-700 font-medium">Reviewer: {reviewerName}</p>
+                <p className="text-gray-700 dark:text-gray-400 font-medium">
+                  Reviewer: {reviewerName}
+                </p>
                 <p className="text-gray-500 text-sm">By: {created_by}</p>
-                <p className="text-orange-500 font-bold text-lg">
-                ⭐{rating}
-              </p>
+                <p className="flex items-center gap-1 text-orange-500 font-bold text-lg">
+                  <FaStar className="text-base" />
+                  <span>{rating}</span>
+                </p>
               </div>
-              
             </div>
 
             {/* Review Text */}
-            <p className="text-gray-800 text-lg mb-4">{reviewText}</p>
+            <p className="text-gray-800 dark:text-gray-400 text-lg mb-4">
+              {reviewText}
+            </p>
 
             {/* Created Date */}
-            <p className="text-gray-400 text-sm">Reviewed on: {formattedDate}</p>
+            <p className="text-gray-500 text-sm">
+              Reviewed on: {formattedDate}
+            </p>
           </div>
 
           {/* Go Back Home Button */}
           <div className="mt-6">
             <Link
               to="/"
-              className="inline-block px-6 py-3 rounded-full font-semibold text-white bg-linear-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 transition-colors"
+              className=" px-6 py-3 btn font-semibold text-white bg-linear-to-r from-orange-500 to-red-500 hover:from-red-500 hover:to-orange-500 transition-colors"
             >
               ← Go Back Home
             </Link>
@@ -76,7 +83,7 @@ const CardDetails = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CardDetails
+export default CardDetails;
